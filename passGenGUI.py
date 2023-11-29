@@ -70,7 +70,6 @@ class PassGenerator:
     def genPassword(self):
         try:
             passwordSz = self.passLen.get()
-            print(passwordSz)
             if passwordSz <= 1:
                 note = "Please use a positive integer for password length.\n"
                 tkmess.showinfo(title = "Warning", message = note)
@@ -80,7 +79,6 @@ class PassGenerator:
             tkmess.showinfo(title = "Warning", message = note)
         try: 
             password = makePassword(passwordSz, self.upperFlag, self.numFlag, self.symFlag)
-            print(password)
             self.passwordPt.set(password)
         except:
             if self.upperFlag and self.numFlag and self.symFlag:
@@ -96,15 +94,12 @@ class PassGenerator:
     # Changes the values of the flags if the state of the appropriate textbox changes
     def setUpperFlag(self):
         self.upperFlag = self.upperFlagVar.get()
-        print(self.upperFlag)
         
     def setNumFlag(self):
         self.numFlag = self.numFlagVar.get()
-        print(self.numFlag)
         
     def setSymFlag(self):
         self.symFlag = self.symFlagVar.get()
-        print(self.symFlag)
 
 # Random letter selection 
 def randLetters(num, upperFlag):
